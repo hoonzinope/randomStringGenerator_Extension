@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random String Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            display: flex;
+            flex-direction: column; /* 요소들을 세로로 배치 */
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .header > h1 {
+            font-size: 1em;
+        }
+
+        .input-area {
+            display: flex;
+            flex-direction: column; /* 요소들을 세로로 배치 */
+            /* margin-bottom: 5px; */
+        }
+        
+        .input-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px; /* input row간 간격 추가 */
+        }
+
+        .input-row > label {
+            font-size: 0.8em;
+        }
+
+        .button-area {
+            display: flex;
+            justify-content: flex-end; /* 버튼을 오른쪽으로 정렬 */
+            margin-bottom: 10px;
+        }
+
+        .copy-button i {
+            /* font-size: 1.2em; 아이콘 크기 조절 */
+            color: #333; /* 아이콘 색상 조절 */
+        }
+
+        .textarea-area {
+            position: relative; /* 복사 버튼 위치 설정을 위해 필요 */
+            flex-grow: 1; /* textarea가 남은 공간을 채우도록 함 */
+        }
+
+        #result {
+            width: 100%;
+            height: 100%;
+            resize: none; /* textarea 크기 조절 방지 */
+            box-sizing: border-box; /* padding, border 포함하여 width, height 계산 */
+        }
+
+        #length { /* length input 스타일 추가 */
+            width: 60px; /* 너비 조절 */
+            box-sizing: border-box; /* padding, border 포함하여 width 계산 */
+            text-align: right; /* 숫자를 오른쪽 정렬 */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔁 Random String Generator</h1>
+        </div>
+        <div class="input-area">
+            <div class="input-row">
+                <label for="symbols">Symbols?</label>
+                <input type="checkbox" id="symbolCheck">
+            </div>
+        </div>
+        <div class="input-area">
+            <div class="input-row">
+                <label for="length">Symbols:</label>
+                <input type="text" id="symbols" size="30" value="!@#$%^&*()_+=-`~[]\{}|;':\,.?">
+            </div>
+        </div>
+        <div class="input-area">
+            <div class="input-row">
+                <label for="length">Length: </label>
+                <input type="number" id="length" size="10" min="1" value="10">
+            </div>
+            <div class="button-area">
+                <button id="generateButton"><i class="fas fa-magic"></i> Generate</button>
+            </div>
+        </div>
+        <div class="button-area">
+            <div id="notice"></div>
+            <button class="copy-button" id="copyButton"><i class="fas fa-copy"></i> Copy</button>
+        </div>
+        <div class="textarea-area">
+            <textarea id="result" readonly></textarea>
+        </div>
+    </div>
+
+    <script src="../scripts/popup.js"></script>
+</body>
+</html>
